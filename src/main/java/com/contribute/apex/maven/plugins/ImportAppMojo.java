@@ -191,8 +191,7 @@ public class ImportAppMojo extends AbstractMojo {
     public String getFriendlyPath(String path) {
         String friendlyPath;
 
-        friendlyPath = path.replace("Program Files", "Progra~1");
-        friendlyPath = "@" + friendlyPath;
+        friendlyPath = "@\"" + path +"\"";
 
         if (friendlyPath.contains(" ")) {
             getLog().debug("Path contains space character(s): " + friendlyPath);
@@ -390,7 +389,6 @@ public class ImportAppMojo extends AbstractMojo {
         getLog().debug("Absolute path to the appExportLocation folder: " + exportFolder.getAbsolutePath());
 
         exportFiles = exportFolder.listFiles(new FileFilter() {
-            @Override
             public boolean accept(File file) {
                 if (file.getName().toLowerCase().endsWith(sqlFileExtension)) {
                     getLog().debug("Included export file: " + file.getName());

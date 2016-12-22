@@ -102,7 +102,6 @@ public class NaturalDocsMojo extends AbstractMojo {
      * The method called by Maven when the 'run-natural-docs' goal gets
      * executed.
      */
-    @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         ProcessBuilder processBuilder;
         Process process;
